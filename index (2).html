@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Bio</title>
+    <style>
+        :root {
+            --bg1: #0f172a;
+            --bg2: #1e293b;
+            --accent1: #6366f1;
+            --accent2: #a5b4fc;
+            --text: #f8fafc;
+            --muted: #94a3b8;
+            --shadow: 0 8px 30px rgba(15, 23, 42, 0.6);
+            --ease: cubic-bezier(.16,.8,.24,1);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, var(--bg1), var(--bg2));
+            transition: opacity 0.3s ease;
+color: var(--text);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            -webkit-font-smoothing: antialiased;
+        }
+        .card {
+            max-width: 600px;
+            width: 100%;
+            background: rgba(15, 23, 42, 0.7);
+border-radius: 20px;
+            padding: 40px;
+            backdrop-filter: blur(12px);
+box-shadow: var(--shadow);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .shape {
+            position: fixed;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.15;
+            z-index: -1;
+            mix-blend-mode: overlay;
+        }
+        
+        .shape-1 {
+            width: 400px;
+            height: 400px;
+            background: var(--accent1);
+            top: -100px;
+            left: -100px;
+            animation: float 12s ease-in-out infinite alternate;
+        }
+        
+        .shape-2 {
+            width: 300px;
+            height: 300px;
+            background: var(--accent2);
+            bottom: -80px;
+            right: -80px;
+            animation: float 15s ease-in-out infinite alternate-reverse;
+        }
+        
+        @keyframes float {
+            0% { transform: translate(0, 0); }
+            50% { transform: translate(30px, -40px); }
+            100% { transform: translate(-20px, 20px); }
+        }
+@keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            background: linear-gradient(135deg, var(--accent1), var(--accent2));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 40px;
+            font-weight: bold;
+            color: white;
+            box-shadow: 0 10px 30px rgba(99, 102, 241, 0.3);
+        }
+
+        h1 {
+            font-size: 28px;
+            margin-bottom: 10px;
+            color: var(--text);
+        }
+
+        .title {
+            color: var(--muted);
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+
+        .bio {
+            line-height: 1.6;
+            margin-bottom: 30px;
+            color: var(--muted);
+            font-size: 16px;
+        }
+        .lang-toggle {
+            display: flex;
+            gap: 8px;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .lang-btn {
+            padding: 6px 12px;
+            border-radius: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: var(--muted);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .lang-btn.active {
+            background: var(--accent1);
+            color: white;
+            border-color: var(--accent1);
+        }
+
+        .socials {
+display: flex;
+            gap: 12px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .social-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 16px;
+            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--text);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .social-link:hover {
+            background: rgba(99, 102, 241, 0.3);
+transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(99, 102, 241, 0.2);
+        }
+
+        footer {
+            margin-top: 30px;
+            font-size: 14px;
+            color: var(--muted);
+        }
+
+        @media (max-width: 600px) {
+            .card {
+                padding: 30px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="shape shape-1"></div>
+    <div class="shape shape-2"></div>
+    
+    <div class="card">
+<div class="avatar">
+  <img src="https://lastfm.freetls.fastly.net/i/u/ar0/8e67ad78be3961e7c7e51ee92a82ea5e.jpg" alt="Profile Photo" style="width:100%; height:100%; object-fit:cover; border-radius:50%">
+</div>
+        <h1>NotWeris_</h1>
+        <div class="title">Web Developer </div>
+        <div class="lang-toggle">
+            <button class="lang-btn active" data-lang="en">EN</button>
+            <button class="lang-btn" data-lang="ru">RU</button>
+        </div>
+        <div class="bio" id="bio">
+            I'm a Python programmer. I'm a member of the Incompetent Squad, and you can contact me via Telegram for any other questions.
+        </div>
+<div class="socials">
+            <a href="https://www.youtube.com/@Theweris719" class="social-link">YouTube</a>
+            <a href="https://github.com/NotWeris" class="social-link">GitHub</a>
+            <a href="https://t.me/pristoff1" class="social-link">Telegram</a>
+            <a href="https://discord.com/users/915247719436660736" class="social-link">Discord</a>
+</div>
+    <footer>© 2025 My Bio. All rights reserved.</footer>
+
+    <script>
+        const texts = {
+            en: {
+                bio: "I'm a Python programmer. I'm a member of the Incompetent Squad, and you can contact me via Telegram for any other questions.",
+                title: "Information about NotWeris_ / Pristoff"
+            },
+            ru: {
+                bio: "Занимаюсь пайтоном, программист. Состою в бездарь Squad , другие вопросы пишите в телеграмм.",
+                title: "Информация о NotWeris_ / Pristoff"
+            }
+        };
+
+        const bioElement = document.getElementById('bio');
+        const titleElement = document.querySelector('.title');
+        const langButtons = document.querySelectorAll('.lang-btn');
+        function switchLanguage(lang) {
+            document.body.style.opacity = 0;
+            
+            setTimeout(() => {
+                bioElement.textContent = texts[lang].bio;
+                titleElement.textContent = texts[lang].title;
+                
+                langButtons.forEach(btn => {
+                    btn.classList.toggle('active', btn.dataset.lang === lang);
+                });
+                
+                document.body.style.opacity = 1;
+            }, 300);
+        }
+langButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                switchLanguage(btn.dataset.lang);
+            });
+        });
+    </script>
+</div>
+</body>
+</html>
